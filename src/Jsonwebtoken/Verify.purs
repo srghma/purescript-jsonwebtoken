@@ -1,4 +1,4 @@
-module Node.Jwt.Verify where
+module Jsonwebtoken.Verify where
 
 import Control.Monad.Except
 import Data.Bifunctor
@@ -10,8 +10,8 @@ import Data.Traversable
 import Effect.Aff
 import Effect.Uncurried
 import Foreign
-import Node.Jwt.JwtErrors
-import Node.Jwt.Types
+import Jsonwebtoken.JwtErrors
+import Jsonwebtoken.Types
 import Prelude
 
 import Data.Argonaut (Json)
@@ -26,16 +26,16 @@ import Data.Nullable (Nullable)
 import Data.Nullable as Nullable
 import Data.String.Regex (Regex)
 import Effect.Aff.Compat (EffectFnAff(..), fromEffectFnAff)
-import Node.Jwt.JsonWebTokenError (JsonWebTokenError)
-import Node.Jwt.JsonWebTokenError as JsonWebTokenError
-import Node.Jwt.NotBeforeError (NotBeforeError)
-import Node.Jwt.NotBeforeError as NotBeforeError
-import Node.Jwt.NumericDate (NumericDate)
-import Node.Jwt.NumericDate as Exports
-import Node.Jwt.NumericDate as NumericDate
-import Node.Jwt.TokenExpiredError (TokenExpiredError)
-import Node.Jwt.TokenExpiredError as TokenExpiredError
-import Node.Jwt.Types as Exports
+import Jsonwebtoken.JsonWebTokenError (JsonWebTokenError)
+import Jsonwebtoken.JsonWebTokenError as JsonWebTokenError
+import Jsonwebtoken.NotBeforeError (NotBeforeError)
+import Jsonwebtoken.NotBeforeError as NotBeforeError
+import Jsonwebtoken.NumericDate (NumericDate)
+import Jsonwebtoken.NumericDate as Exports
+import Jsonwebtoken.NumericDate as NumericDate
+import Jsonwebtoken.TokenExpiredError (TokenExpiredError)
+import Jsonwebtoken.TokenExpiredError as TokenExpiredError
+import Jsonwebtoken.Types as Exports
 import Unsafe.Coerce (unsafeCoerce)
 
 type VerifyOptionsInternal =

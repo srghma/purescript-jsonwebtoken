@@ -1,4 +1,4 @@
-module Node.Jwt.JsonWebTokenError where
+module Jsonwebtoken.JsonWebTokenError where
 
 import Control.Monad.Except
 import Data.Bifunctor

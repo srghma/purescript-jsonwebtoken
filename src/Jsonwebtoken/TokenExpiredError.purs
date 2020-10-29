@@ -1,4 +1,4 @@
-module Node.Jwt.NotBeforeError where
+module Jsonwebtoken.TokenExpiredError where
 
 import Control.Monad.Except
 import Data.Bifunctor
@@ -9,18 +9,18 @@ import Data.Maybe
 import Data.Traversable
 import Effect.Aff
 import Effect.Uncurried
-import Prelude
-import Data.JSDate
-
 import Foreign
+import Prelude
 
-data NotBeforeError
+import Data.Time.Duration (Seconds(..))
 
-foreign import name :: NotBeforeError -> String
+data TokenExpiredError
 
-foreign import message :: NotBeforeError -> String
+foreign import name :: TokenExpiredError -> String
 
-foreign import date :: NotBeforeError -> JSDate
+foreign import message :: TokenExpiredError -> String
+
+foreign import expiredAt :: TokenExpiredError -> Seconds
 
 foreign import _fromError
   :: forall a
@@ -28,9 +28,9 @@ foreign import _fromError
     (Maybe a)
     (a -> Maybe a)
     Error
-    (Maybe NotBeforeError)
+    (Maybe TokenExpiredError)
 
-fromError :: Error -> Maybe NotBeforeError
+fromError :: Error -> Maybe TokenExpiredError
 fromError =
   runFn3
   _fromError

@@ -1,4 +1,4 @@
-module Node.Jwt.NumericDate where
+module Jsonwebtoken.NumericDate where
 
 import Data.DateTime
 import Data.DateTime.Instant

@@ -11,7 +11,7 @@ import Effect (Effect)
 import Effect.Aff (Milliseconds(..), launchAff_)
 import Effect.Class (class MonadEffect, liftEffect)
 import Effect.Now (now)
--- | import Node.Jwt
+-- | import Jsonwebtoken
 import Prelude
 import Prim.Row (class Lacks)
 import Record (delete)

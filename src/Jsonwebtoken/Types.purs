@@ -1,4 +1,4 @@
-module Node.Jwt.Types where
+module Jsonwebtoken.Types where
 
 import Control.Alt ((<|>))
 import Control.Monad.Error.Class (throwError)
@@ -17,7 +17,7 @@ import Foreign (ForeignError(..), readArray, readNumber, readString)
 import Foreign.Generic (class Decode, class Encode, encode)
 import Foreign.Generic.EnumEncoding (defaultGenericEnumOptions, genericDecodeEnum, genericEncodeEnum)
 import Prelude (class Eq, class Ord, class Show, pure, show, ($), (*), (/), (<<<), (=<<), (>=>), (>>>))
-import Node.Jwt.NumericDate
+import Jsonwebtoken.NumericDate
 
 data Algorithm
   = HS256 -- HMAC using SHA-256 hash algorithm
