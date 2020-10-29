@@ -73,12 +73,13 @@ defaultVerifyOptions algorithms =
   }
 
 foreign import _verify ::
+  forall a .
   Fn4
   Boolean
   String
   SecretOrPublicKey
   VerifyOptionsInternal
-  (EffectFnAff Json)
+  (EffectFnAff a)
 
 -- returns { header, payload, signature }
 -- can use catchJwtErrors
@@ -86,7 +87,7 @@ verifyComplete
   :: String
   -> SecretOrPublicKey
   -> VerifyOptions
-  -> Aff Json
+  -> Aff { header :: Json, payload :: Json, signature :: String }
 verifyComplete = \token secretOrPublicKey verifyOptions -> fromEffectFnAff $ runFn4 _verify true token secretOrPublicKey (verifyOptionsToVerifyOptionsInternal verifyOptions)
 
 -- returns payload
